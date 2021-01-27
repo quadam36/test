@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>
+    <header :class="{ fixed: isFixed }">
       <div class="inner">
         <div
           class="open-nav-drawer"
@@ -44,6 +44,7 @@
   </div>
 </template>
 <script>
+import _throttle from 'lodash/throttle'
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 
@@ -52,6 +53,7 @@ export default {
     return {
       searchText : '',
       rankings: {},
+      isFixed: false,
     }
   },
   mounted() {
@@ -59,6 +61,10 @@ export default {
   },
   methods: {
     async init() {
+      window.addEventListener('scroll', _throttle(event => {
+        this.isFixed = window.scrollY > 120
+      }, 100))
+
       this.rankings = await this.$fetch({
         requestName: 'rankings'
       })
@@ -92,6 +98,18 @@ export default {
 </script>
 <style scoped lang="scss">
 header{
+  background-color: #fff;
+  &.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 97;
+    box-shadow: 0 2px 8px rgba(#000, .07);
+    .inner {
+      height: 80px;
+    }
+  }
   .inner{
     display: flex;
     align-items: center;
