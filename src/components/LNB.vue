@@ -39,8 +39,10 @@
             </li>
           </ul>
         </div>
-        <!-- GROUP -->
-        <div class="group major-services">
+
+        <div
+          class="group major-services"
+          @mouseenter="categoryHover = -1">
           <div class="group__title">
             {{ navigations.majorServices.title }}
           </div>
@@ -56,13 +58,13 @@
         </div>
         <div
           ref="outlets"
-          class="group outlets">
+          class="group outlets"
+          @mouseenter="categoryHover = -1">
           <div
             class="group__title"
             @click="toggleGroup('outlets')">
             {{ navigations.outlets.title }}
-            <div class="toggle-list">
-            </div>
+            <div class="toggle-list"></div>
           </div>
           <ul
             v-show="isShowOutlets"
@@ -134,7 +136,6 @@ export default {
       const pascalCaseName = _upperFirst(name)
       const computedName = 'isShow' + pascalCaseName
       this.$data[computedName] = !this.$data[computedName]
-
       if (this.$data[computedName]) {
         this.$nextTick(() => {
           this.$refs.container.scrollTop = this.$refs[name].offsetTop

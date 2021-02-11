@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
+import Swiper from 'swiper/bundle'
 import 'swiper/swiper-bundle.css'
 import ProductCard from '~/src/components/ProductCard'
 
