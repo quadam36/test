@@ -45,6 +45,7 @@ export default {
   methods: {
     async init() {
       this.directs = await this.$fetch({
+        // 큰따옴표와 작은따옴표 중 한 가지 방식만 사용하는 것이 좋아요~
         requestName: "directs"
       })
     },

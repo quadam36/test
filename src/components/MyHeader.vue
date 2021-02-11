@@ -45,8 +45,8 @@
 </template>
 <script>
 import _throttle from 'lodash/throttle'
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import Swiper from 'swiper/bundle'
+import 'swiper/swiper-bundle.css'
 
 export default {
   data() {
@@ -120,8 +120,8 @@ header{
       border-radius: 50%;
       cursor: pointer;
       box-shadow:
-          0 2px 6px rgba(#000, .06),
-          0 0 1px rgba(#000, .4);
+        0 2px 6px rgba(#000, .06),
+        0 0 1px rgba(#000, .4);
       display:flex;
       justify-content: center;
       align-items: center;
@@ -136,7 +136,8 @@ header{
       }
     }
     .logo {
-      display: block;
+      // Flex Item은 블록 요소로 바뀌니 따로 display 속성이 없어도 돼요~
+      // display: block;
       width: 94px;
       height: 40px;
       margin: 0 24px;

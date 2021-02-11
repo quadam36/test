@@ -98,16 +98,22 @@ export default {
         })
       })
     },
-    toggleAutoplay() {
-      if (this.isAutoplay) this.swiper.autoplay.stop()
-      else this.swiper.autoplay.start()
+    toggleAutoplay () {록
+      // else까지 작성한다면, 조건 블록을 정리하는 것이 좋아요~
+      if (this.isAutoplay) {
+        this.swiper.autoplay.stop()
+      } else {
+        this.swiper.autoplay.start()
+      }
     }
   }
 }
 </script>
+
 <style scoped lang="scss">
 .billboard{
-  .transition: background-color 1s;
+  transition: background-color 1s;
+  // inner는 중첩으로 포함하지 않는 것이 관리하기 좋아요~
   .inner {
     .swiper-container{
       width: 1240px;
